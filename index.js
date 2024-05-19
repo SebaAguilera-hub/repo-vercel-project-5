@@ -23,7 +23,7 @@ connectDB()
 
 // Habilitar CORS
 const whitelist = ['http://localhost:3004/', 'http://localhost:3001/'];
-app.use(cors())
+app.use(cors(whitelist))
 
 app.use(express.json());
 
