@@ -7,5 +7,5 @@ router.get("obtener-cuadro/:id", obtenerCuadro);
 router.delete("/eliminar-cuadro", eliminarCuadro);
 router.post("/crear-cuadro", crearCuadro)
 
-module.exports = router
+// module.exports = router
 

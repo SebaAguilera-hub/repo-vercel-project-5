@@ -11,10 +11,11 @@ const connectDB = require('./config/db')
 
 const Guitarra = require('./models/Guitar')
 const Usuario = require('./models/User')
+const Cuadro = require("./models/Cuadro.model")
 
 //MODULO DE CUADROS:
-const router = express.Router();
-const cuadroRoutes = require("./routes/Cuadro.router")
+// const router = express.Router();
+// const cuadroRoutes = require("./routes/Cuadro.router")
 
 
 
@@ -46,8 +47,90 @@ mercadopago.configure({
 // 3. RUTEO
 
 // CUADROS -----------------------
-router.use("/cuadros", cuadroRoutes);
+// router.use("/cuadros", cuadroRoutes);
 
+app.get("/obtener-cuadros", async (req, res) => {
+    try {
+        const cuadros = await Cuadro.find({})
+
+        res.json({
+            cuadros
+        })
+
+    } catch (error) {
+        res.status(500).json({
+            msg: "Hubo un error obteniendo los datos"
+        })
+    }
+})
+
+app.get( "/obtener-cuadro/:id", async (req, res) => {    // /obtener-cuadro/:id
+
+    const { id } = req.params
+
+    try {
+
+        const cuadro = await Cuadro.findById(id)
+
+        res.json({
+            cuadro
+        })
+
+    } catch (error) {
+        res.status(500).json({
+            msg: "Hubo un error obteniendo los datos"
+        })
+    }
+
+})
+
+app.post("/crear-cuadro", async (req, res) => {   // /crear-cuadro
+  
+    const {
+        nombre,
+        precio,
+        imagen,
+        dimension,
+        descripcion,
+         } = req.body
+
+    try {
+
+        const nuevaGuitarra = await Cuadro.create({
+            nombre, precio, imagen, dimension,
+            descripcion
+        })
+
+        res.json(nuevaGuitarra)
+
+    } catch (error) {
+
+        res.status(500).json({
+            msg: "Hubo un error creando la guitarra",
+            error
+        })
+
+    }
+})
+
+ app.delete("/eliminar-cuadro" , async (req, res) => {   // /borrar-cuadro
+
+    const { id } = req.body
+
+    try {
+
+        const cuadroBorrado = await Cuadro.findByIdAndRemove({ _id: id })
+
+        res.json(cuadroBorrado)
+
+
+    } catch (error) {
+        res.status(500).json({
+            msg: "Hubo un error borrando la guitarra especificada"
+        })
+    }
+
+})
 
 // A. GUITARRAS
 

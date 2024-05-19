@@ -1,93 +1,93 @@
-const Cuadro = require("../models/Cuadro.model")
-// const bcrypt = require('bcrypt')
+// const Cuadro = require("../models/Cuadro.model")
+// // const bcrypt = require('bcrypt')
 
-const obtenerCuadros = async (req, res) => {
-    try {
-        const cuadros = await Guitarra.find({})
+// const obtenerCuadros = async (req, res) => {
+//     try {
+//         const cuadros = await Guitarra.find({})
 
-        res.json({
-            cuadros
-        })
+//         res.json({
+//             cuadros
+//         })
 
-    } catch (error) {
-        res.status(500).json({
-            msg: "Hubo un error obteniendo los datos"
-        })
-    }
-}
+//     } catch (error) {
+//         res.status(500).json({
+//             msg: "Hubo un error obteniendo los datos"
+//         })
+//     }
+// }
 
-const obtenerCuadro =  async (req, res) => {    // /obtener-cuadro/:id
+// const obtenerCuadro =  async (req, res) => {    // /obtener-cuadro/:id
 
-    const { id } = req.params
+//     const { id } = req.params
 
-    try {
+//     try {
 
-        const cuadro = await Cuadro.findById(id)
+//         const cuadro = await Cuadro.findById(id)
 
-        res.json({
-            cuadro
-        })
+//         res.json({
+//             cuadro
+//         })
 
-    } catch (error) {
-        res.status(500).json({
-            msg: "Hubo un error obteniendo los datos"
-        })
-    }
+//     } catch (error) {
+//         res.status(500).json({
+//             msg: "Hubo un error obteniendo los datos"
+//         })
+//     }
 
-}
+// }
 
-const crearCuadro = async (req, res) => {   // /crear-cuadro
+// const crearCuadro = async (req, res) => {   // /crear-cuadro
   
-    const {
-        nombre,
-        precio,
-        imagen,
-        dimension,
-        descripcion,
-         } = req.body
+//     const {
+//         nombre,
+//         precio,
+//         imagen,
+//         dimension,
+//         descripcion,
+//          } = req.body
 
-    try {
+//     try {
 
-        const nuevaGuitarra = await Cuadro.create({
-            nombre, precio, imagen, dimension,
-            descripcion
-        })
+//         const nuevaGuitarra = await Cuadro.create({
+//             nombre, precio, imagen, dimension,
+//             descripcion
+//         })
 
-        res.json(nuevaGuitarra)
+//         res.json(nuevaGuitarra)
 
-    } catch (error) {
+//     } catch (error) {
 
-        res.status(500).json({
-            msg: "Hubo un error creando la guitarra",
-            error
-        })
+//         res.status(500).json({
+//             msg: "Hubo un error creando la guitarra",
+//             error
+//         })
 
-    }
-}
+//     }
+// }
 
-const eliminarCuadro =  async (req, res) => {   // /borrar-cuadro
+// const eliminarCuadro =  async (req, res) => {   // /borrar-cuadro
 
-    const { id } = req.body
+//     const { id } = req.body
 
-    try {
+//     try {
 
-        const cuadroBorrado = await Cuadro.findByIdAndRemove({ _id: id })
+//         const cuadroBorrado = await Cuadro.findByIdAndRemove({ _id: id })
 
-        res.json(cuadroBorrado)
-
-
-    } catch (error) {
-        res.status(500).json({
-            msg: "Hubo un error borrando la guitarra especificada"
-        })
-    }
-
-}
+//         res.json(cuadroBorrado)
 
 
-module.exports = {
-    obtenerCuadro,
-    obtenerCuadros,
-    eliminarCuadro,
-    crearCuadro
-}
+//     } catch (error) {
+//         res.status(500).json({
+//             msg: "Hubo un error borrando la guitarra especificada"
+//         })
+//     }
+
+// }
+
+
+// module.exports = {
+//     obtenerCuadro,
+//     obtenerCuadros,
+//     eliminarCuadro,
+//     crearCuadro
+// }
