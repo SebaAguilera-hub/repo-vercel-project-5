@@ -152,7 +152,7 @@ app.delete("/borrar-guitarra", async (req, res) => {
 
 // B. USUARIOS
 // CREAR UN USUARIO
-app.post("/usuario/crear", async (req, res) => {
+app.post("/usuario/signup", async (req, res) => {
 
     // OBTENER USUARIO, EMAIL Y PASSWORD DE LA PETICIÓN
     const { name, email, password } = req.body
@@ -207,7 +207,7 @@ app.post("/usuario/crear", async (req, res) => {
 
 
 // INICIAR SESIÓN
-app.post("/usuario/iniciar-sesion", async (req, res) => {
+app.post("/usuario/login", async (req, res) => {
 
     // OBTENEMOS EL EMAIL Y EL PASSWORD DE LA PETICIÓN
     const { email, password } = req.body
@@ -327,4 +327,4 @@ app.post("/mercadopago", async (req, res) => {
 
 
 // 4. SERVIDOR
-app.listen(process.env.PORT, () => console.log("El servidor está de pie"))
+app.listen(process.env.PORT, () => console.log("El servidor está de pie en " + process.env.PORT))
