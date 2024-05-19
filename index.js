@@ -36,12 +36,12 @@ app.use(express.json());
 
 // MERCADO PAGO
 
-const mercadopago = require("mercadopago")
-const { update } = require('./models/Guitar')
+// const mercadopago = require("mercadopago")
+// const { update } = require('./models/Guitar')
 
-mercadopago.configure({
-    access_token: "TEST-695027965126634-121802-510b23c7e4759300bfa01dc4bd7d8e09-309278269"
-})
+// mercadopago.configure({
+//     access_token: "TEST-695027965126634-121802-510b23c7e4759300bfa01dc4bd7d8e09-309278269"
+// })
 
 
 // 3. RUTEO
@@ -393,19 +393,19 @@ app.put("/usuario/actualizar", auth, async (req, res) => {
 // C. CHECKOUT MERCADOPAGO
 
 
-app.post("/mercadopago", async (req, res) => {
+// app.post("/mercadopago", async (req, res) => {
 
-    const preference = req.body
+//     const preference = req.body
   
-    const responseMP = await mercadopago.preferences.create(preference)
+//     const responseMP = await mercadopago.preferences.create(preference)
 
-    console.log(responseMP)
+//     console.log(responseMP)
 
-    res.json({
-        checkoutId: responseMP.body.id
-    });
+//     res.json({
+//         checkoutId: responseMP.body.id
+//     });
 
-})
+// })
 
 
 
