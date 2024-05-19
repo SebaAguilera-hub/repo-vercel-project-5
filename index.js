@@ -13,12 +13,6 @@ const Guitarra = require('./models/Guitar')
 const Usuario = require('./models/User')
 const Cuadro = require("./models/Cuadro.model")
 
-//MODULO DE CUADROS:
-// const router = express.Router();
-// const cuadroRoutes = require("./routes/Cuadro.router")
-
-
-
 
 // 2. MIDDLEWARES
 // VARIABLES DE ENTORNO
@@ -48,6 +42,9 @@ app.use(express.json());
 
 // CUADROS -----------------------
 // router.use("/cuadros", cuadroRoutes);
+app.get("/", (res,req)=>{
+    res.send("OK")
+})
 
 app.get("/obtener-cuadros", async (req, res) => {
     try {
