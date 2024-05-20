@@ -32,12 +32,12 @@ app.use(express.json());
 
 // MERCADO PAGO
 
-// const mercadopago = require("mercadopago")
-// const { update } = require('./models/Guitar')
+ const mercadopago = require("mercadopago")
+ const { update } = require('./models/Cuadro.model')
 
-// mercadopago.configure({
-//     access_token: "TEST-695027965126634-121802-510b23c7e4759300bfa01dc4bd7d8e09-309278269"
-// })
+ mercadopago.configure({
+     access_token: process.env.PROD_ACCESS_TOKEN
+     })
 
 
 // 3. RUTEO
