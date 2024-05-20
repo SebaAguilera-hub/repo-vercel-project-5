@@ -22,8 +22,6 @@ require('dotenv').config()
 connectDB()
 
 // Habilitar CORS
-
-
 const whitelist = ['http://localhost:3000/', 'http://localhost:3001/'];
 app.use(cors(whitelist))
 
@@ -46,7 +44,7 @@ app.use(express.json());
 
 // CUADROS -----------------------
 
-app.get("/", (res,req)=>{
+app.get("/", (req,res)=>{
     res.send("OK")
 })
 
