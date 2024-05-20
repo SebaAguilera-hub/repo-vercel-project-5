@@ -26,7 +26,7 @@ connectDB()
 
 const whitelist = ['http://localhost:3004/', 'http://localhost:3001/'];
 app.use(cors({
-    origin: 'http://localhost:3001'
+    origin: 'http://localhost:3000'
 }))
 
 
@@ -47,7 +47,7 @@ app.use(express.json());
 // 3. RUTEO
 
 // CUADROS -----------------------
-// router.use("/cuadros", cuadroRoutes);
+
 app.get("/", (res,req)=>{
     res.send("OK")
 })
@@ -99,12 +99,12 @@ app.post("/crear-cuadro", async (req, res) => {   // /crear-cuadro
 
     try {
 
-        const nuevaGuitarra = await Cuadro.create({
+        const nuevoCuadro = await Cuadro.create({
             nombre, precio, imagen, dimension,
             descripcion
         })
 
-        res.json(nuevaGuitarra)
+        res.json(nuevoCuadro)
 
     } catch (error) {
 
@@ -360,7 +360,7 @@ app.get("/usuario/verificar-usuario", auth, async (req, res) => {
     } catch (error) {
         // EN CASO DE HERROR DEVOLVEMOS UN MENSAJE CON EL ERROR
         res.status(500).json({
-            msg: "Hubo un error",
+            msg: "Hubo un error en el login",
             error
         })
     }
