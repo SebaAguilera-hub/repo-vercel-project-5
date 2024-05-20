@@ -392,19 +392,19 @@ app.put("/usuario/actualizar", auth, async (req, res) => {
 // C. CHECKOUT MERCADOPAGO
 
 
-// app.post("/mercadopago", async (req, res) => {
+ app.post("/mercadopago", async (req, res) => {
 
-//     const preference = req.body
+   const preference = req.body
   
-//     const responseMP = await mercadopago.preferences.create(preference)
+     const responseMP = await mercadopago.preferences.create(preference)
 
-//     console.log(responseMP)
+    console.log(responseMP)
 
-//     res.json({
-//         checkoutId: responseMP.body.id
-//     });
+    res.json({
+         checkoutId: responseMP.body.id
+    });
 
-// })
+ })
 
 
 
